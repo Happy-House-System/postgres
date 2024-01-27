@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    volumes:
+      - ~/postgres/postgres-data:/var/lib/postgresql/data
+    restart: unless-stopped
+    network_mode: bridge
